@@ -1,0 +1,35 @@
+const compute=function(){
+  return{
+    store:0,
+    crore:function(val){
+      this.store+=val*Math.pow(10,7);
+      return this;
+    },
+    lakh:function(val){
+      this.store+=val*Math.pow(10,5);
+      return this;
+    },
+    thousand:function(val){
+      this.store+=val*Math.pow(10,3);
+      return this;
+    },
+    hundred:function(val){
+      this.store+=val*Math.pow(10,2);
+      return this;
+    },
+    ten:function(val){
+      this.store+=val*10;
+      return this;
+    },
+    unit:function(val){
+      this.store+=val;
+      return this;
+    },
+    value:function(){
+      return this.store;
+    },
+  }
+}
+
+const amount=compute().lakh(15).crore(5).crore(2).lakh(20).thousand(45).crore(7).value();
+console.log(amount);

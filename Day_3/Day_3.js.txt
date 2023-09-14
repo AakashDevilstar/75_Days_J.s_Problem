@@ -1,0 +1,25 @@
+let localstorage={
+  setItem:function(key,value,time){
+    let obj={
+      data:value,
+    };
+    obj.expiretime=Date.now()+time;
+    localStorage.setItem(key,JSON.stringify(obj));
+  },
+  getItem:function(key){
+    let ans=JSON.parse(window.localStorage.getItem(key));
+    if(ans){
+      if(ans.expiretime<=Date.now()){
+        localStorage.removeItem(key);
+        return null;
+      }
+      return ans.data;
+    }
+    return null;
+  },
+}
+
+localstorage.setItem('foo','bar',4000);
+setTimeout(()=>{
+  console.log(localstorage.getItem('foo'));
+},4000);

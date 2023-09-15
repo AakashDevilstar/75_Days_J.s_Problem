@@ -1,0 +1,47 @@
+// 1 Method
+
+function toggle(...list){
+  let curr=0;
+  const  len=list.length;
+  return function(){
+    let currpos=list[curr];
+    if(curr==len-1){
+      curr=0;
+    }
+    else{
+      curr++;
+    }
+    return currpos;
+  }
+}
+
+const hello=toggle('1','2','3');
+console.log(hello()); //1 
+console.log(hello()); //2
+console.log(hello()); //3
+console.log(hello()); //1
+console.log(hello()); //2
+console.log(hello()); //3
+console.log(hello()); //1
+console.log(hello()); //2
+
+//2nd Method
+function toggle(...list){
+  let curr=0;
+  const  len=list.length;
+  return function(){
+    let currpos=list[curr];
+    curr=(curr+1)%len;
+    return currpos;
+  }
+}
+
+const hello=toggle('1','2','3');
+console.log(hello()); //1 
+console.log(hello()); //2
+console.log(hello()); //3
+console.log(hello()); //1
+console.log(hello()); //2
+console.log(hello()); //3
+console.log(hello()); //1
+console.log(hello()); //2

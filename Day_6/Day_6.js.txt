@@ -1,0 +1,24 @@
+
+function findMutualFriend(friendList,person){
+  let mutualfriend=friendList[person];
+  if(mutualfriend){
+    let output=[...mutualfriend];
+    for(let curr of mutualfriend){
+      output.push(...findMutualFriend(friendList,curr));
+    }
+    return output;
+  }
+  else{
+    return [];
+  }
+}
+
+const friendList={
+  a:['b','c'],
+  b:['d','g'],
+  d:['p','q'],
+  l:['x','y'],
+}
+
+console.log(findMutualFriend(friendList,'a'));
+console.log(findMutualFriend(friendList,'d'));

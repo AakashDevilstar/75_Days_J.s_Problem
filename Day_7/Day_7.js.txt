@@ -1,0 +1,23 @@
+let MY_TIMERS={
+  arr:[],
+  setTimeout:function(fn,delay){
+    let curr=setTimeout(fn,delay);
+    this.arr.push(curr);
+    return curr;
+  },
+  clearAllTimeout:function(){
+    while(this.arr.length){
+      clearTimeout(this.arr.pop());
+    }
+  }
+}
+
+const id = MY_TIMERS.setTimeout(() => {console.log("hello")}, 1000);
+console.log(id);
+const id1 = MY_TIMERS.setTimeout(() => {console.log("hello")}, 2000);
+console.log(id1);
+const id2 = MY_TIMERS.setTimeout(() => {console.log("hello")}, 3000);
+console.log(id2);
+const id3 = MY_TIMERS.setTimeout(() => {console.log("hello")}, 4000);
+console.log(id3);
+MY_TIMERS.clearAllTimeout();

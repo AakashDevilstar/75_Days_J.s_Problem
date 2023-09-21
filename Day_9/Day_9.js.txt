@@ -1,0 +1,28 @@
+
+let btn=document.getElementById("increment-btn");
+let btnpress=document.getElementById("increment-pressed");
+let count=document.getElementById("increment-count");
+
+var pressedCount=0;
+var triggerCount=0;
+
+const mydebounce=(cb,d)=>{
+    let timer;
+    return function(){
+        if(timer){
+            clearTimeout(timer);
+        }
+        timer=setTimeout(() => {
+            cb();
+        }, d);
+    };  
+};
+
+const throttleCount=mydebounce(()=>{
+    count.innerHTML=++triggerCount;
+},800);
+
+btn.addEventListener('click',()=>{
+    btnpress.innerHTML=++pressedCount;
+    throttleCount();
+});

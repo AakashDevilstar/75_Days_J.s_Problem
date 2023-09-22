@@ -1,0 +1,37 @@
+function setCookie(name, value, maxAgeInSeconds) {
+  const expires = maxAgeInSeconds
+    ? `;max-age=${maxAgeInSeconds}`
+    : ''; // Max age in seconds (optional)
+
+  document.cookie = `${name}=${value}${expires}`;
+}
+
+// Function to get a cookie by name
+function getCookie(name) {
+  // console.log(document.cookie,'org wali');
+  const cookies = document.cookie.split(';');
+  // console.log(cookies,"split wala");
+  for (const cookie of cookies) {
+    // const obj = cookie.trim().split('=');
+    const [cookieName,cookieValue]=cookie.trim().split('=');
+    // console.log(obj);
+    if (cookieName === name) {
+      return cookieValue;
+    }
+  }
+  return null;
+}
+
+// Set the 'blog' and 'name' cookies
+setCookie('blog', 'Hashdefine',5);
+setCookie('name', 'Aakash', 1); // Expires after 1 second
+
+// Log the cookies
+// console.log(getCookie('blog')); // "Hashdefine"
+console.log(getCookie('blog'));
+console.log(getCookie('name')); // "Aakash"
+
+// Wait for 1.5 seconds and then log the 'name' cookie again
+setTimeout(() => {
+  console.log(getCookie('blog')); // null, as it has expired
+}, 6000);

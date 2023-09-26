@@ -1,5 +1,3 @@
-//Html
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +13,6 @@
 </body>
 </html>
 
-//J.s
 const mythroat=(fn,d)=>{
     return function(){
         document.getElementById("butt").disabled=true;

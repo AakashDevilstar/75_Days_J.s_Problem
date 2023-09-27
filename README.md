@@ -30,3 +30,6 @@ Leetcode Question(1472) https://leetcode.com/problems/design-browser-history/
 
 # Day 12
 Leetcode Question (146) https://leetcode.com/problems/lru-cache/
+
+# Day 14
+Design the Debounce function and Implement it also.

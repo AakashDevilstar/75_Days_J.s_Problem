@@ -29,4 +29,6 @@ PollyFill of Debounce
 =======
 # Day 11
 Leetcode Question(1472) https://leetcode.com/problems/design-browser-history/
->>>>>>> e661908d1b0a07feb7c999505755cb4f88504a85
+
+# Day 12
+Leetcode Question (146) https://leetcode.com/problems/lru-cache/
